@@ -28,36 +28,9 @@ This repository is intended for design demonstration and architectural reference
 ---
 
 ## System Architecture
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'background': '#ffffff', 'primaryColor': '#ffffff', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#ffffff', 'clusterBkg': '#fafafa', 'clusterBorder': '#e5e7eb', 'lineColor': '#4B0082', 'fontSize': '14px'}}}%%
-graph LR
-    subgraph Data_Prep ["Offline Data Pipeline"]
-        Sources[("UW Catalog & <br/>RateMyProf")]
-        Scraper["Python Scraper"]
-        Context["JSON Context <br/>Dataset"]
-    end
+## System Architecture
 
-    subgraph Client_Side ["Client Side"]
-        User["Student / React App"]
-    end
-
-    subgraph AWS_Cloud ["AWS Cloud Infrastructure"]
-        Cognito["AWS Cognito<br/>(Auth)"]
-        Lambda["AWS Lambda<br/>(Orchestrator)"]
-        Bedrock["AWS Bedrock<br/>(Claude Model)"]
-    end
-
-    Sources -- "1. Scrape" --> Scraper
-    Scraper -- "2. Clean & Format" --> Context
-    Context -.-> Lambda
-
-    User -- "3. Auth" --> Cognito
-    User -- "4. Query" --> Lambda
-
-    Lambda -- "5. Prompt + Context" --> Bedrock
-    Bedrock -- "6. Response" --> Lambda
-    Lambda --> User
-```
+![System Architecture](architecture.svg)
 
 ---
 
