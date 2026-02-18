@@ -24,11 +24,7 @@ UW students must navigate hundreds of courses, complex prerequisite chains, and 
 > **Proof of Concept Only**
 
 This repository is intended for design demonstration and architectural reference.
-
-- All sensitive credentials (AWS Access Keys, Bedrock/Anthropic keys) have been removed
 - The application will not run locally without valid credentials
-- No production secrets are exposed
-
 ---
 
 ## System Architecture
