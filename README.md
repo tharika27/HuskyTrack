@@ -1,44 +1,37 @@
-# 🐾 Husky Track  
-### *AI-Powered Course Navigator & Academic Advisor*
+# Husky Track
+### AI-Powered Course Navigator & Academic Advisor
 
 [![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
 [![Claude](https://img.shields.io/badge/Claude_3-D97757?style=flat&logo=anthropic&logoColor=white)](https://www.anthropic.com/)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 
-**Husky Track** is an intelligent academic advisor designed to simplify course planning for **University of Washington students**.  
-It transforms complex curriculum data into a **conversational, AI-driven experience**, helping students make informed decisions about classes, professors, and degree paths.
+Husky Track is an AI-powered academic advisor for University of Washington students. It consolidates course catalog data and professor reviews into a conversational interface, enabling students to make informed decisions about course selection and degree planning.
 
 ---
 
-## 🎯 Motivation
+## Motivation
 
-UW students navigate:
-- Hundreds of courses  
-- Complex prerequisite chains  
-- Fragmented information across catalogs and review sites  
+UW students must navigate hundreds of courses, complex prerequisite chains, and information scattered across multiple platforms. Husky Track centralizes this data and supports natural language queries such as:
 
-Husky Track unifies this data and lets students ask **natural language questions** like:
-
-> *“What cse course do you recommend based on my recent grades”*  
-> *“When should I take this class to get the highest rated professor”*
+> *"What CSE course do you recommend based on my recent grades?"*  
+> *"When should I take this class to get the highest-rated professor?"*
 
 ---
 
-## ⚠️ Security Disclosure
+## Security Disclosure
 
 > **Proof of Concept Only**
 
-This repository is intended for **design demonstration and architectural reference**.
+This repository is intended for design demonstration and architectural reference.
 
-- All sensitive credentials (AWS Access Keys, Bedrock / Anthropic keys) have been **removed**
-- The application **will not run locally** without valid credentials
+- All sensitive credentials (AWS Access Keys, Bedrock/Anthropic keys) have been removed
+- The application will not run locally without valid credentials
 - No production secrets are exposed
 
 ---
 
-## 🏗️ System Architecture
-
+## System Architecture
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'background': '#ffffff', 'primaryColor': '#ffffff', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#ffffff', 'clusterBkg': '#fafafa', 'clusterBorder': '#e5e7eb', 'lineColor': '#4B0082', 'fontSize': '14px'}}}%%
 graph LR
@@ -72,55 +65,39 @@ graph LR
 
 ---
 
-## 🧠 Architecture Highlights
+## Architecture
 
-### 📦 Offline Data Ingestion
-- Custom Python scraper aggregates:
-  - UW Course Catalog
-  - 1,500+ Rate My Professor reviews
-- Data normalized into a structured **JSON context file**
+**Offline Data Ingestion** — A custom Python scraper aggregates data from the UW Course Catalog and 1,500+ Rate My Professor reviews, normalizing the output into a structured JSON context file.
 
-### 🧩 Context Injection (No Vector DB)
-- Entire curated dataset is injected directly into the model context
-- Enables full-curriculum reasoning without retrieval pipelines
+**Context Injection** — The full curated dataset is injected directly into the model context at request time, enabling complete curriculum reasoning without a vector database or retrieval pipeline.
 
-### ☁️ Serverless Backend
-- AWS Lambda orchestrates:
-  - Authentication checks
-  - Prompt construction
-  - Secure communication with AWS Bedrock
+**Serverless Backend** — AWS Lambda handles authentication checks, prompt construction, and secure communication with AWS Bedrock.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-| Component        | Technology              | Purpose |
-|------------------|--------------------------|---------|
-| Frontend         | React, JavaScript        | Student chat interface |
-| Authentication  | AWS Cognito              | Secure user identity |
-| AI Model         | AWS Bedrock (Claude)     | Reasoning & recommendations |
-| Compute          | AWS Lambda               | Serverless request handling |
-| Data Engineering | Python                   | Web scraping & normalization |
-
----
-
-## 🚀 Key Features
-
-### 🎓 Smart Course Recommendations
-- Filters by prerequisites, difficulty, and professor ratings
-- Suggests realistic course options
-
-### 💬 Natural Language Search
-- Conversational interface
-- No manual filtering required
-
-### ⭐ Integrated Professor Ratings
-- Merges official descriptions with student sentiment
-- Produces holistic recommendations
+| Component        | Technology              | Purpose                          |
+|------------------|--------------------------|----------------------------------|
+| Frontend         | React, JavaScript        | Student chat interface           |
+| Authentication   | AWS Cognito              | Secure user identity             |
+| AI Model         | AWS Bedrock (Claude)     | Reasoning and recommendations    |
+| Compute          | AWS Lambda               | Serverless request handling      |
+| Data Engineering | Python                   | Web scraping and normalization   |
 
 ---
 
-## 📱 Interface Preview
+## Features
+
+**Course Recommendations** — Filters by prerequisites, difficulty, and professor ratings to suggest appropriate course options.
+
+**Natural Language Interface** — Conversational query support with no manual filtering required.
+
+**Integrated Professor Ratings** — Combines official course descriptions with aggregated student sentiment for holistic recommendations.
+
+---
+
+## Interface Preview
 
 <div>
   <img width="150" height="435" alt="Mobile View" src="https://github.com/user-attachments/assets/31936ec1-961e-4a14-87ad-bfe1ca5f5f21" />
