@@ -28,8 +28,6 @@ This repository is intended for design demonstration and architectural reference
 ---
 
 ## System Architecture
-## System Architecture
-
 ![System Architecture](architecture.svg)
 
 ---
